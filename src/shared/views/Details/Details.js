@@ -1,33 +1,25 @@
 import React, { Component } from 'react'
-import { createSelector } from 'reselect'
-import { connect } from 'react-redux'
 import { isEmpty } from 'lodash';
 import ChevronLeft from 'material-ui/svg-icons/navigation/chevron-left';
 import { NavLink } from 'react-router-dom'
 import RaisedButton from 'material-ui/RaisedButton';
+
+import { connect } from 'react-redux'
+import { jobDataSelector, jobStatusSelector} from '../../redux/selectors';
 import { fetchJob } from '../../redux/actions';
-import {
-    CompanyDetails,
-    CompanyName,
-    Date,
-    Description,
-    DetailsWrapper,
-    JobWraper,
-    Link,
-    Location,
-    Title,
-    JobDetails,
-    SectionTitle,
-} from './styledComponents';
+
+import { OfferDetails } from './OfferDetails';
 import { getHelmet } from '../prepareMetadata';
+import { ContentWrapper, SubContentWrapper } from '../../components/styledComponents';
+
 
 const mapDispatchToProps = dispatch => ({
     fetchAction: (slug) => dispatch(fetchJob(slug))
 });
 
 const mapStateToProps = state => ({
-    job: state.getIn(['JOB', 'DATA']).toJS(),
-    status: state.getIn(['JOB', 'STATUS']),
+    job: jobDataSelector(state).toJS(),
+    status: jobStatusSelector(state),
 });
 
 class Details extends Component {
@@ -36,7 +28,6 @@ class Details extends Component {
             const { slug } = this.props.match.params;
 
             if (isEmpty(this.props.job) || this.props.job.slug !== slug) {
-
                 this.props.fetchAction(slug);
             }
         }
@@ -52,7 +43,7 @@ class Details extends Component {
             meta: {
                 charset: 'UTF-8',
                 keywords: 'jobs,jobsfabrik',
-            }
+            },
         };
 
         let content = <div />;
@@ -61,51 +52,7 @@ class Details extends Component {
             seo.description += `${job.title} ${job.company}`;
             seo.meta.keywords += [job.title, job.company].join(',');
 
-            content = (
-                <div>
-                    <Title>
-                        {job.title}
-                    </Title>
-                    <Location>
-                        {job.location} - {job.type}
-                    </Location>
-                    <Date>
-                        Job offer appeared on {job.date}
-                    </Date>
-                    <Description>
-                        <a href={`mailto:example@${job.company}.com?subject=${job.title} offer`}>
-                            <RaisedButton label="Apply" primary={true}/>
-                        </a>
-                        <SectionTitle>Company details</SectionTitle>
-                        <JobDetails>
-                            <CompanyName>{job.company}</CompanyName>
-                            <CompanyDetails>
-                                Learn more about the company on the website
-                                <Link href="#!" target="_blank">www.{job.company}.com</Link>
-                            </CompanyDetails>
-                        </JobDetails>
-
-                        <SectionTitle>Job brief</SectionTitle>
-                        <JobDetails>
-                            {job.brief}
-                        </JobDetails>
-
-                        <SectionTitle>Responsibilities</SectionTitle>
-                        <JobDetails>
-                            <ul>
-                                {job.responsibilities.map((r, index) => <li key={index}>{r}</li>)}
-                            </ul>
-                        </JobDetails>
-
-                        <SectionTitle>Requirements</SectionTitle>
-                        <JobDetails>
-                            <ul>
-                                {job.requirements.map((r, index) => <li key={index}>{r}</li>)}
-                            </ul>
-                        </JobDetails>
-                    </Description>
-                </div>
-            );
+            content = OfferDetails(job);
         } else if (status === 'REJECTED' || isEmpty(job)) {
             content = (
                 <label>
@@ -115,15 +62,15 @@ class Details extends Component {
         }
 
         return (
-            <DetailsWrapper>
+            <ContentWrapper>
                 {getHelmet(seo)}
                 <NavLink to={'/'} >
                     <RaisedButton label="Back" icon={<ChevronLeft/>} />
                 </NavLink>
-                <JobWraper>
+                <SubContentWrapper>
                     {content}
-                </JobWraper>
-            </DetailsWrapper>
+                </SubContentWrapper>
+            </ContentWrapper>
         )
     }
 }

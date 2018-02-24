@@ -3,7 +3,7 @@ import Details from '../views/Details';
 
 import { fetchJobs, fetchJob } from '../redux/actions';
 
-const routes =  [
+const routes = [
   {
     path: '/',
     exact: true,
@@ -15,6 +15,6 @@ const routes =  [
     component: Details,
     reduxAction: (path = '') => fetchJob.bind(null, path.split('/').pop()),
   }
-]
+];
 
 export default routes

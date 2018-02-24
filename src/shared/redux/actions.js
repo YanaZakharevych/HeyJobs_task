@@ -8,7 +8,7 @@ export const fetchJobs = () => {
             .then((data) => data.json())
             .then((repos) => repos.data)
     });
-}
+};
 
 export const fetchJob = (slug) => {
     return dispatch => dispatch({

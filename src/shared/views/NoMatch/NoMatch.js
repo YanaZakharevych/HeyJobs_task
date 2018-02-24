@@ -1,18 +1,9 @@
 import React from 'react'
-import styled from 'styled-components';
+import { NavLink } from 'react-router-dom'
+import RaisedButton from 'material-ui/RaisedButton';
+
+import { Title, CenteredWrapper } from '../../components/styledComponents';
 import { getHelmet } from '../prepareMetadata';
-
-const Wrapper = styled.div`
-  display: flex;
-  align-items: center;
-  margin: 20px;
-  flex-flow: column;
-`;
-
-const Title = styled.label`
-  font-size: 32px;
-  font-weight: 500;
-`;
 
 export default function NoMatch () {
     const seo = {
@@ -20,19 +11,20 @@ export default function NoMatch () {
         description: 'Jobs Fabrik - page not found',
         meta: {
             charset: 'UTF-8',
-            name: {
-                keywords: 'jobs,jobsfabrik'
-            }
-        }
+            keywords: 'jobs,jobsfabrik',
+        },
     };
 
     return (
-    <Wrapper>
+    <CenteredWrapper padding="20px">
         {getHelmet(seo)}
         <Title>
           404
         </Title>
         <p>Sorry, this url is not pointing anywhere</p>
-    </Wrapper>
+        <NavLink to={'/'} >
+            <RaisedButton label="Go back to homepage" />
+        </NavLink>
+    </CenteredWrapper>
   )
 }

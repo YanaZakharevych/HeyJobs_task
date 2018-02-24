@@ -1,30 +1,28 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
 import { isEmpty } from 'lodash';
 import {List, ListItem} from 'material-ui/List';
 import Avatar from 'material-ui/Avatar';
 import { NavLink } from 'react-router-dom'
-import styled from 'styled-components';
-import Welcome from './Welcome';
-import { getHelmet } from '../prepareMetadata';
 import ChevronRight from 'material-ui/svg-icons/navigation/chevron-right';
 import Domain from 'material-ui/svg-icons/social/domain';
 import LocationOn from 'material-ui/svg-icons/communication/location-on';
 
+import { connect } from 'react-redux';
+import { jobsDataSelector, jobsStatusSelector } from '../../redux/selectors';
 import { fetchJobs } from '../../redux/actions';
+
+import Welcome from './Welcome';
+import { getHelmet } from '../prepareMetadata';
+import { Strong, ContentWrapper } from '../../components/styledComponents';
 
 const mapDispatchToProps = dispatch => ({
     fetchAction: () => dispatch(fetchJobs())
 });
 
 const mapStateToProps = state => ({
-    jobs: state.getIn(['JOBS', 'DATA']).toJS(),
-    status: state.getIn(['JOBS', 'STATUS']),
+    jobs: jobsDataSelector(state).toJS(),
+    status: jobsStatusSelector(state),
 });
-
-const Title = styled.strong`
-  text-transform: capitalize;
-`;
 
 const iconDomainStyle = {
     color: 'rgba(0, 0, 0, 0.54)',
@@ -58,7 +56,7 @@ class Home extends Component {
             meta: {
                 charset: 'UTF-8',
                 keywords: 'jobs,jobsfabrik,jobs offers',
-            }
+            },
         };
 
         let content = <div />;
@@ -72,10 +70,12 @@ class Home extends Component {
                                 leftAvatar={<Avatar src={`https://placeimg.com/${50+index}/${50+index}/animals`} />}
                                 rightIcon={<ChevronRight />}
                                 secondaryText={(
-                                <span>
-                                    <Title><Domain style={iconDomainStyle}/> {job.company}</Title>
-                                    <LocationOn style={iconLocationStyle} />{job.location}
-                                </span>
+                                    <span>
+                                        <Strong textTransform="capitalize">
+                                            <Domain style={iconDomainStyle}/> {job.company}
+                                        </Strong>
+                                        <LocationOn style={iconLocationStyle} />{job.location}
+                                    </span>
                                 )}
                             />
                         </NavLink>
@@ -87,14 +87,14 @@ class Home extends Component {
         }
 
         return (
-            <main>
+            <ContentWrapper>
                 {getHelmet(seo)}
                 <Welcome />
                 <section>
                     <span>Click on an offer to see details</span>
                     {content}
                 </section>
-            </main>
+            </ContentWrapper>
         )
   }
 }

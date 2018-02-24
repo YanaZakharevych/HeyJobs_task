@@ -14,7 +14,6 @@ import { JOBS } from './jobs';
 import { find } from 'lodash';
 import { getHTML } from './markup';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import { Sitemap } from './sitemap';
 
 global.navigator = { userAgent: 'all' };
 
@@ -22,18 +21,6 @@ const app = express();
 
 app.use(cors());
 app.use(express.static("public"));
-
-app.get('/robots.txt', function (req, res) {
-    res.type('text/plain');
-    res.send(`User-agent: *
-        Allow: /
-        Sitemap: http://localhost:3333/sitemap.xml`);
-});
-
-app.get('/sitemap.xml', function (req, res) {
-    res.type('text/xml');
-    res.send(Sitemap);
-});
 
 app.get('/api/jobs/:slug', (req, res, next) => {
     const slug = req.params.slug;

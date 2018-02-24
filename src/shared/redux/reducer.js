@@ -7,7 +7,7 @@ export const STATE_CONSTS = {
     JOB: 'JOB',
     STATUS: 'STATUS',
     DATA: 'DATA',
-}
+};
 
 export const initialState = fromJS({
     [STATE_CONSTS.JOBS]: {

@@ -13,7 +13,7 @@ const description = {
         "Familiarity with browser testing and debugging"
     ],
     type: 'Full Time',
-}
+};
 
 export const JOBS = { data: [
     { id: 0, slug: 'superoid-senior-frontend-developer', ...description, title: 'Senior Frontend Developer', company: 'superoid', date: '12.20.2017', location: 'Berlin, Germany' },
