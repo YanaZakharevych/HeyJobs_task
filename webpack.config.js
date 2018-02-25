@@ -6,13 +6,19 @@ var browserConfig = {
   entry: './src/browser/index.js',
   output: {
     path: path.resolve(__dirname, 'public'),
-    filename: 'bundle.js',
+    filename: 'client.js',
     publicPath: '/'
   },
   module: {
     rules: [
-      { test: /\.(js)$/, use: 'babel-loader' },
+      {
+        test: /\.(js|jsx)$/,
+        use: 'babel-loader'
+      },
     ]
+  },
+  resolve: {
+    extensions: ['.js', '.jsx'],
   },
   plugins: [
     new webpack.DefinePlugin({
@@ -31,9 +37,15 @@ var serverConfig = {
     publicPath: '/'
   },
   module: {
-    rules: [
-      { test: /\.(js)$/, use: 'babel-loader' }
-    ]
+  rules: [
+    {
+      test: /\.(js|jsx)$/,
+      use: 'babel-loader'
+    },
+  ]
+  },
+  resolve: {
+    extensions: ['.js', '.jsx'],
   },
   plugins: [
     new webpack.DefinePlugin({

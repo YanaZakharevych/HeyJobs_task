@@ -1,7 +1,6 @@
 import serialize from 'serialize-javascript';
 import { Helmet } from "react-helmet";
 
-
 export const getHTML = (markup, initialState, path) => {
     const helmet = Helmet.renderStatic();
 
@@ -16,7 +15,7 @@ export const getHTML = (markup, initialState, path) => {
                 ${helmet.meta.toString()}
                 ${helmet.link.toString()}
             
-                <script src="/bundle.js" defer></script>
+                <script src="/client.js" defer></script>
                 <script>
                     window.__INITIAL_STATE__ = ${serialize(initialState)}
                 </script>

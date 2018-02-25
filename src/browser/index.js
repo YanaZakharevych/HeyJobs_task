@@ -1,15 +1,15 @@
 import React from 'react'
 import { hydrate } from 'react-dom'
-import App from '../shared/App'
 import { BrowserRouter } from 'react-router-dom'
-
 import { Provider } from 'react-redux'
 import { createStore, applyMiddleware, compose } from 'redux'
-import { reducer } from '../shared/redux/reducer';
 import promiseMiddleware from 'redux-promise-middleware';
 import thunkMiddleware from 'redux-thunk';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import { fromJS } from 'immutable';
+
+import App from '../shared/App'
+import { reducer } from '../shared/redux/reducer';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
