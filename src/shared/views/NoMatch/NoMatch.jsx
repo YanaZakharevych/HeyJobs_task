@@ -16,7 +16,7 @@ export default function NoMatch () {
     };
 
     return (
-    <CenteredWrapper padding="20px">
+    <CenteredWrapper>
         {getHelmet(seo)}
         <Title>
           404

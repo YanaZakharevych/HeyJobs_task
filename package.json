@@ -6,6 +6,7 @@
     "build": "webpack -w",
     "build:prod": "NODE_ENV='production' webpack",
     "serve": "node server.js",
+    "serve:dev": "nodemon server.js",
     "start": "npm install && npm run build:prod && npm run serve",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

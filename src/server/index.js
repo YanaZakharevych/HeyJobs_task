@@ -14,7 +14,7 @@ import { JOBS } from './jobs';
 import { find } from 'lodash';
 import { getHTML } from './markup';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import { ServerStyleSheet } from 'styled-components'
+import { ServerStyleSheet, StyleSheetManager } from 'styled-components'
 
 global.navigator = { userAgent: 'all' };
 
@@ -48,31 +48,33 @@ app.get("*", (req, res, next) => {
 
     const activeRoute = routes.find((route) => matchPath(req.url, route)) || {}
     const promise = activeRoute.reduxAction ?
-      store.dispatch(activeRoute.reduxAction(req.path)()) :
-      Promise.resolve();
+    store.dispatch(activeRoute.reduxAction(req.path)()) :
+    Promise.resolve();
 
     promise.then(() => {
-      const state = store.getState().toJS();
-      const context = { state };
-      const sheet = new ServerStyleSheet();
+        const state = store.getState().toJS();
+        const context = { state };
+        const sheet = new ServerStyleSheet();
 
-      const markup = renderToString(
-          <StaticRouter location={req.url} context={context}>
-              <Provider store={store}>
-                <MuiThemeProvider>
-                    {sheet.collectStyles(<App />)}
-                </MuiThemeProvider>
-              </Provider>
-          </StaticRouter>
-      );
+        const markup = renderToString(
+            <StaticRouter location={req.url} context={context}>
+                <Provider store={store}>
+                    <MuiThemeProvider>
+                        <StyleSheetManager sheet={sheet.instance}>
+                            <App />
+                        </StyleSheetManager>
+                    </MuiThemeProvider>
+                </Provider>
+            </StaticRouter>
+        );
 
-      const styleTags = sheet.getStyleTags();
+        const styleTags = sheet.getStyleTags();
 
-      res.send(getHTML(markup, state, styleTags));
+        res.send(getHTML(markup, state, styleTags));
     }).catch(next);
 
 });
 
 app.listen(3333, () => {
-  console.log(`Server is listening on port: 3333`)
+    console.log(`Server is listening on port: 3333`)
 });

@@ -16,4 +16,4 @@ export const Navbar = (props) => (
           iconElementLeft={<div />}
       />
     </div>
-)
+);
