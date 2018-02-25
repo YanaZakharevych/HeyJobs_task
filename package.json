@@ -3,8 +3,10 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "npm install && webpack && node server.js",
-    "start:dev": "webpack -w & nodemon server.js",
+    "build": "webpack -w",
+    "build:prod": "NODE_ENV='production' webpack",
+    "serve": "node server.js",
+    "start": "npm install && npm run build:prod && npm run serve",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",

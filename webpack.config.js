@@ -2,6 +2,31 @@ var path = require('path')
 var webpack = require('webpack')
 var nodeExternals = require('webpack-node-externals')
 
+var PROD = (process.env.NODE_ENV === 'production')
+
+var clientPlugins = [
+    new webpack.DefinePlugin({
+        __isBrowser__: "true"
+    })
+];
+
+if(PROD) {
+    Array.prototype.push.apply(clientPlugins, [
+        new webpack.DefinePlugin({
+            'process.env': {
+                'NODE_ENV': JSON.stringify('production')
+            }
+        }),
+        new webpack.optimize.UglifyJsPlugin({
+            include: /.js$/,
+            minimize: true,
+            keep_classnames: true,
+            keep_fnames: true,
+        }),
+    ]);
+}
+
+
 var browserConfig = {
   entry: './src/browser/index.js',
   output: {
@@ -9,6 +34,7 @@ var browserConfig = {
     filename: 'client.js',
     publicPath: '/'
   },
+  devtool: 'source-map',
   module: {
     rules: [
       {
@@ -20,11 +46,7 @@ var browserConfig = {
   resolve: {
     extensions: ['.js', '.jsx'],
   },
-  plugins: [
-    new webpack.DefinePlugin({
-      __isBrowser__: "true"
-    })
-  ]
+  plugins: clientPlugins,
 }
 
 var serverConfig = {
