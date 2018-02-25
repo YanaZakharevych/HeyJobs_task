@@ -14,6 +14,7 @@ import { JOBS } from './jobs';
 import { find } from 'lodash';
 import { getHTML } from './markup';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import { ServerStyleSheet } from 'styled-components'
 
 global.navigator = { userAgent: 'all' };
 
@@ -53,18 +54,21 @@ app.get("*", (req, res, next) => {
     promise.then(() => {
       const state = store.getState().toJS();
       const context = { state };
+      const sheet = new ServerStyleSheet();
 
       const markup = renderToString(
           <StaticRouter location={req.url} context={context}>
               <Provider store={store}>
                 <MuiThemeProvider>
-                  <App />
+                    {sheet.collectStyles(<App />)}
                 </MuiThemeProvider>
               </Provider>
           </StaticRouter>
       );
 
-      res.send(getHTML(markup, state));
+      const styleTags = sheet.getStyleTags();
+
+      res.send(getHTML(markup, state, styleTags));
     }).catch(next);
 
 });

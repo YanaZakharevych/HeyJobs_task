@@ -1,7 +1,7 @@
 import serialize from 'serialize-javascript';
 import { Helmet } from "react-helmet";
 
-export const getHTML = (markup, initialState, path) => {
+export const getHTML = (markup, initialState, styleTags) => {
     const helmet = Helmet.renderStatic();
 
     return (
@@ -19,6 +19,8 @@ export const getHTML = (markup, initialState, path) => {
                 <script>
                     window.__INITIAL_STATE__ = ${serialize(initialState)}
                 </script>
+                
+                ${styleTags}
             </head>
 
             <body>
