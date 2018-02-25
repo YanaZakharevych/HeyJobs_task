@@ -21,7 +21,7 @@ export const OfferDetails = (job) => (
         <SubTitle>
             {job.location} - {job.type}
         </SubTitle>
-        <SuplementaryText>
+        <SuplementaryText margin="10x 0" display="block">
             Job offer appeared on {job.date}
         </SuplementaryText>
         <TextSection>
@@ -31,7 +31,7 @@ export const OfferDetails = (job) => (
             <SectionHeader>Company details</SectionHeader>
             <Paragraph>
                 <Strong>{job.company}</Strong>
-                <SuplementaryText style={{display: 'inline-block', margin: '0 10px'}}>
+                <SuplementaryText display="inline-block" margin="0 10px">
                     Learn more about the company on the website: <Link href="#!" target="_blank">www.{job.company}.com</Link>
                 </SuplementaryText>
             </Paragraph>

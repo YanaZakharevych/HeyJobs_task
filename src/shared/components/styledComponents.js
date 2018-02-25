@@ -48,8 +48,7 @@ export const SubTitle = styled.h3`
     color: ${COLORS.gray};
  `;
 
-export const SubContentWrapper = styled.div`
- `;
+export const SubContentWrapper = styled.div``;
 
 export const SectionHeader = styled.h2`
     font-size: 30px;
@@ -65,7 +64,8 @@ export const SuplementaryText = styled.h3`
     font-size: 15px;
     color: ${COLORS.gray};
     display: ${props => props.display || 'block'};
- `;
+    margin: ${props => props.margin || 'auto' };
+`;
 
 export const Strong = styled.strong`
     text-transform: ${props => props.textTransform || 'none' };

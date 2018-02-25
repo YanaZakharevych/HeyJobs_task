@@ -3,13 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="c4ff77a1-6af1-4b86-8bcd-4f50bee9e2ca" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/server/index.js" afterPath="$PROJECT_DIR$/src/server/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/shared/components/Navbar.jsx" afterPath="$PROJECT_DIR$/src/shared/components/Navbar.jsx" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/shared/components/styledComponents.js" afterPath="$PROJECT_DIR$/src/shared/components/styledComponents.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/shared/views/Details/OfferDetails.jsx" afterPath="$PROJECT_DIR$/src/shared/views/Details/OfferDetails.jsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/shared/views/Home/Welcome.jsx" afterPath="$PROJECT_DIR$/src/shared/views/Home/Welcome.jsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/shared/views/NoMatch/NoMatch.jsx" afterPath="$PROJECT_DIR$/src/shared/views/NoMatch/NoMatch.jsx" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -26,18 +21,28 @@
       <file leaf-file-name="Details.jsx" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/shared/views/Details/Details.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="581">
-              <caret line="68" column="26" lean-forward="true" selection-start-line="68" selection-start-column="26" selection-end-line="68" selection-end-column="26" />
+            <state relative-caret-position="545">
+              <caret line="54" column="40" lean-forward="true" selection-start-line="54" selection-start-column="40" selection-end-line="54" selection-end-column="40" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="OfferDetails.jsx" pinned="false" current-in-tab="false">
+      <file leaf-file-name="OfferDetails.jsx" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/shared/views/Details/OfferDetails.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="293">
-              <caret line="33" column="78" lean-forward="false" selection-start-line="33" selection-start-column="78" selection-end-line="33" selection-end-column="78" />
+            <state relative-caret-position="198">
+              <caret line="23" column="55" lean-forward="false" selection-start-line="23" selection-start-column="55" selection-end-line="23" selection-end-column="55" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/shared/views/Details/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -97,11 +102,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="styledComponents.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="styledComponents.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/shared/components/styledComponents.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="33" column="13" lean-forward="false" selection-start-line="33" selection-start-column="13" selection-end-line="33" selection-end-column="13" />
+            <state relative-caret-position="455">
+              <caret line="63" column="20" lean-forward="false" selection-start-line="63" selection-start-column="20" selection-end-line="63" selection-end-column="20" />
               <folding />
             </state>
           </provider>
@@ -114,18 +119,6 @@
               <caret line="4" column="19" lean-forward="true" selection-start-line="4" selection-start-column="19" selection-end-line="4" selection-end-column="19" />
               <folding>
                 <element signature="e#0#25#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/server/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="239">
-              <caret line="51" column="22" lean-forward="true" selection-start-line="51" selection-start-column="22" selection-end-line="51" selection-end-column="22" />
-              <folding>
-                <element signature="e#0#29#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -160,10 +153,12 @@
       <find>${props =&gt; fromProps(props)}</find>
       <find>\n\n</find>
       <find>\n</find>
+      <find>style=</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/node_modules/material-ui</dir>
       <dir>$PROJECT_DIR$/src</dir>
+      <dir>$PROJECT_DIR$/src/shared/views</dir>
     </dirStrings>
   </component>
   <component name="Git.Settings">
@@ -195,11 +190,11 @@
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/src/shared/components/Navbar.jsx" />
         <option value="$PROJECT_DIR$/src/server/index.js" />
-        <option value="$PROJECT_DIR$/src/shared/components/styledComponents.js" />
-        <option value="$PROJECT_DIR$/src/shared/views/Details/OfferDetails.jsx" />
         <option value="$PROJECT_DIR$/src/shared/views/Home/Home.jsx" />
         <option value="$PROJECT_DIR$/src/shared/views/Home/Welcome.jsx" />
         <option value="$PROJECT_DIR$/src/shared/views/NoMatch/NoMatch.jsx" />
+        <option value="$PROJECT_DIR$/src/shared/components/styledComponents.js" />
+        <option value="$PROJECT_DIR$/src/shared/views/Details/OfferDetails.jsx" />
       </list>
     </option>
   </component>
@@ -350,7 +345,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="21666000" />
+    <option name="totallyTimeSpent" value="22103000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1853" height="1055" extended-state="7" />
@@ -585,14 +580,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/shared/views/Details/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/shared/views/Home/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -728,22 +715,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/shared/views/Details/OfferDetails.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="293">
-          <caret line="33" column="78" lean-forward="false" selection-start-line="33" selection-start-column="78" selection-end-line="33" selection-end-column="78" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/shared/views/Details/Details.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="581">
-          <caret line="68" column="26" lean-forward="true" selection-start-line="68" selection-start-column="26" selection-end-line="68" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/shared/views/Home/Home.jsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="311">
@@ -790,8 +761,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/shared/components/styledComponents.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="33" column="13" lean-forward="false" selection-start-line="33" selection-start-column="13" selection-end-line="33" selection-end-column="13" />
+        <state relative-caret-position="455">
+          <caret line="63" column="20" lean-forward="false" selection-start-line="63" selection-start-column="20" selection-end-line="63" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/shared/views/Details/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/shared/views/Details/Details.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="545">
+          <caret line="54" column="40" lean-forward="true" selection-start-line="54" selection-start-column="40" selection-end-line="54" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/shared/views/Details/OfferDetails.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="23" column="55" lean-forward="false" selection-start-line="23" selection-start-column="55" selection-end-line="23" selection-end-column="55" />
           <folding />
         </state>
       </provider>
