@@ -17,7 +17,7 @@ npm start
 
 Application will be available on `localhost:3333`
 
-<img src="img/screenshot.png" width="300">
+<img src="img/screenshot.png" width="500">
 
 ## Requirements
 We use [wdio](http://webdriver.io/) and JavaScript write automated tests for our frontend applications at HeyJobs.
