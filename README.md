@@ -1,9 +1,25 @@
-# node-react-server-rendering
-Example application with Server Side Rendering for React and server in Node
+## HeyJobs test automation task
+Thanks for taking the time to complete this test task! The purpose of the task is to assess your automation skills, i.e. development style, code organization, project structure.
 
-Commands:
-* `npm run build`- creates build ver
-* `npm run build:prod` - builds optimized ver for production
-* `npm run serve` - starts the server
-* `npm run serve:dev` - starts the server with nodemon (updates after change)
-* `npm start` - installs packages, build production ver and starts server
+## Background
+_Job Fabric_ is a simple React/Redux application. To run the app on your machine you can use yarn or npm.
+
+#### Running with yarn
+
+```
+npm start
+```
+
+#### Running with npm
+```
+npm start
+```
+
+Application will be available on `localhost:3333`
+
+![App screenshot](img/screenshot.png)
+
+## Requirements
+We use [wdio](http://webdriver.io/) and JavaScript write automated tests for our frontend applications at HeyJobs.
+
+You should cover the app functionality with automated tests using `wdio`. You have to come up with test cases yourself. 
