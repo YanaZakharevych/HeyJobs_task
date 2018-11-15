@@ -17,9 +17,9 @@ npm start
 
 Application will be available on `localhost:3333`
 
-![App screenshot](img/screenshot.png)
+<img src="img/screenshot.png" width="300">
 
 ## Requirements
 We use [wdio](http://webdriver.io/) and JavaScript write automated tests for our frontend applications at HeyJobs.
 
-You should cover the app functionality with automated tests using `wdio`. You have to come up with test cases yourself. 
+You should cover the app functionality with automated tests using `wdio`. You have to come up with test cases yourself.
